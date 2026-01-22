@@ -13,6 +13,23 @@
 </head>
 
 <body id="app">
+    <div v-if="rentForm" class="fixed mt-30 w-full flex justify-center z-10">
+        <div class="bg-green-950/90 border-1 border-white rounded-xl h-90 items-center w-150 px-10 mx-10 z-100">
+            <div class="flex gap-2 mt-5">
+                <input class="border-white bg-black/50 w-full border-1 rounded-lg h-10 text-white font-bold"
+                    placeholder=" Full Name" type="text"></input>
+                <input class="border-white w-full bg-black/50 border-1 rounded-lg h-10 text-white font-bold"
+                    placeholder=" Contact Number" type="number"></input>
+            </div>
+            <div class="mt-5">
+                <input class="border-white bg-black/50 text-2xl w-full border-1 rounded-lg h-40 text-white font-bold"
+                    placeholder=" Message Here!" type="text"></input>
+            </div>
+            <div class="w-full h-auto mt-5">
+                <button @click="back" class="h-15 w-full bg-black text-white font-bold border-white hover:bg-white hover:text-black border-2 hover:border-black cursor-pointer">BACK</button>
+            </div>
+        </div>
+    </div>
     <!-- Landing Page -->
     <section id="section1">
         <nav class="bg-green-950 h-15 w-full flex justify-around py-2">
@@ -36,6 +53,7 @@
         </div>
     </section>
     <!-- Products -->
+
     <section id="section2" class="bg-black h-auto w-full pb-10">
         <div class="text-center pt-15">
             <div class="text-green-950 text-2xl">
@@ -55,9 +73,6 @@
                     class="fa-solid fa-envelope text-2xl text-white cursor-pointer mt-7 ml-15 fa-fade"></i>
             </div>
         </div>
-        <div class="bg-green-950/50 h-50 w-full fixed z-20">
-
-        </div>
         <div v-if="showModal" class="flex justify-center">
             <div class="bg-green-950/50 border-2 border-white w-80 h-50 rounded-xl overflow-auto absolute z-1">
                 <div v-if="rentedCar" class="flex justify-around pt-5">
@@ -66,7 +81,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="closeModal" @click="closeClick" class="bg-black/50 h-screen w-full absolute"></div>
+        <div v-if="closeModal" @click="closeClick" class="bg-black/60 h-230 w-full absolute"></div>
 
         <div class="grid grid-flow-col lg:grid-rows-2 md:grid-rows-3 sm:grid-rows-6 grid-rows-6 mx-5 gap-3 mt-20">
             <div v-for="car in cars">
@@ -80,13 +95,13 @@
                     <div>
                         <img :src="car.carImg" alt="" class="md:max-2xl:h-80 sm:h-60 h-50 w-full">
                     </div>
-                    <div class="relative bg-green-950 h-20 w-auto flex justify-between px-5 py-2">
+                    <div class=" bg-green-950 h-20 w-auto flex justify-between px-5 py-2">
                         <div>
                             <h1 class="text-white font-bold md:max-2xl:text-2xl text-xl">{{car.carName}}</h1>
                             <h1 class="text-white font-semibold md:max-2xl:text-xl">{{car.price}}</h1>
                         </div>
                         <button @click="rent"
-                            class="text-white font-bold text-2xl bg-black w-25 h-12 rounded-full border-white border-2 mt-2">RENT</button>
+                            class="text-white cursor-pointer font-bold text-2xl bg-black w-25 h-12 rounded-full border-white border-2 mt-2">RENT</button>
                     </div>
                 </div>
             </div>
@@ -165,6 +180,7 @@
                     closeModal: false,
                     rentedCar: false,
                     notAvailable: false,
+                    rentForm: false,
                 }
             },
             methods: {
@@ -178,10 +194,16 @@
                 },
                 rent() {
                     this.rentedCar = true;
+                    this.rentForm = true;
+                    this.closeModal = true;
                 },
                 confirm() {
                     this.rentendCar = false;
                     this.notAvailable = true;
+                },
+                back(){
+                    this.rentForm = false;
+                    this.closeModal = false;
                 }
             }
         },).mount("#app")
