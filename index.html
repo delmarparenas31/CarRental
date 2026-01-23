@@ -14,7 +14,7 @@
 
 <body id="app">
     <div v-if="rentForm" class="fixed mt-30 w-full flex justify-center z-10">
-        <div class="bg-green-950/90 border-1 border-white rounded-xl h-90 items-center w-150 px-10 mx-10 z-100">
+        <div class="bg-green-950/90 dark:bg-slate-700 border-1 border-white rounded-xl h-90 items-center w-150 px-10 mx-10 z-100">
             <div class="flex gap-2 mt-5">
                 <input class="border-white bg-black/50 w-full border-1 rounded-lg h-10 text-white font-bold"
                     placeholder=" Full Name" type="text"></input>
@@ -26,13 +26,13 @@
                     placeholder=" Message Here!" type="text"></input>
             </div>
             <div class="w-full h-auto mt-5">
-                <button @click="back" class="h-15 w-full bg-black text-white font-bold border-white hover:bg-white hover:text-black border-2 hover:border-black cursor-pointer">BACK</button>
+                <button @click="back" class="h-15 w-full bg-black dark:bg-purple-400 text-white font-bold border-white hover:bg-white hover:text-black border-2 hover:border-black cursor-pointer">BACK</button>
             </div>
         </div>
     </div>
     <!-- Landing Page -->
     <section id="section1">
-        <nav class="bg-green-950 h-15 w-full flex justify-around py-2">
+        <nav class="bg-green-950 dark:bg-slate-700 h-15 w-full flex justify-around py-2">
             <div>
                 <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="profPic" class="h-10 w-10 border-2 border-white rounded-full backdrop-blur bg-black/10">
@@ -43,48 +43,48 @@
                 <a href="#section3" class="pt-1 hover:border-b-1 hover:border-white">Contact</a>
             </div>
         </nav>
-        <div class="bg-green-900 h-50 mt-1 w-full flex justify-around pt-10">
+        <div class="bg-green-900 dark:bg-slate-600 h-50 mt-1 w-full flex justify-around pt-10">
             <h1 class="text-white font-semibold pt-5 text-5xl md:max-2xl:block sm:hidden hidden">Welcome.</h1>
             <h1 class="text-center font-bold text-white text-4xl pt-2">Car<br>Rental</h1>
         </div>
         <div>
             <img src="https://media.istockphoto.com/id/1488488888/photo/lease-rental-car-sell-buy-dealership-manager-send-car-keys-to-the-new-owner-sales-loan-credit.jpg?s=1024x1024&w=is&k=20&c=no_2dv4Hb5DdZ_5Rb0gq624PkRO35VQ1Z-n63455roQ="
-                alt="" class="w-full h-120 blur-[1px] shadow-green-950 shadow-xl">
+                alt="" class="w-full h-120 blur-[1px] shadow-green-950 dark:shadow-slate-700 shadow-xl">
         </div>
     </section>
     <!-- Products -->
 
-    <section id="section2" class="bg-black h-auto w-full pb-10">
+    <section id="section2" class="bg-black dark:bg-purple-200 h-auto w-full pb-10">
         <div class="text-center pt-15">
-            <div class="text-green-950 text-2xl">
+            <div class="text-green-950 dark:text-slate-700 text-2xl">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
             </div>
-            <h1 class="text-green-900 text-xl">More than 1M+ satisfied clients</h1>
-            <b class="text-green-900 text-4xl mt-5">Gas and Go!</b>
+            <h1 class="text-green-900 text-xl dark:text-slate-700">More than 1M+ satisfied clients</h1>
+            <b class="text-green-900 text-4xl mt-5 dark:text-slate-700">Gas and Go!</b>
         </div>
         <div class="flex justify-center mt-15">
-            <div class="bg-green-950 h-20 w-50 text-white font-bold text-3xl border-2 border-white flex justify-around">
+            <div class="bg-green-950 dark:bg-slate-700 h-20 w-50 text-white font-bold text-3xl border-2 border-white flex justify-around">
                 <h1 class="pt-4">Cars</h1>
                 <i @click="message"
                     class="fa-solid fa-envelope text-2xl text-white cursor-pointer mt-7 ml-15 fa-fade"></i>
             </div>
         </div>
         <div v-if="showModal" class="flex justify-center">
-            <div class="bg-green-950/50 border-2 border-white w-80 h-50 rounded-xl overflow-auto absolute z-1">
+            <div class="bg-green-950/50 dark:bg-slate-700 border-2 border-white w-80 h-50 rounded-xl overflow-auto absolute z-1">
                 <div v-if="rentedCar" class="flex justify-around pt-5">
                     <h1 class="text-white text-2xl font-bold pt-2">Car:</h1><button @click="confirm"
-                        class="bg-black h-10 w-25 text-white font-semibold rounded-full border-2 cursor-pointer hover:bg-white/90 hover:text-black mt-2">CONFIRM</button>
+                        class="bg-black dark:bg-purple-400 h-10 w-25 text-white font-semibold rounded-full border-2 cursor-pointer hover:bg-white/90 hover:text-black mt-2">CONFIRM</button>
                 </div>
             </div>
         </div>
-        <div v-if="closeModal" @click="closeClick" class="bg-black/60 h-230 w-full absolute"></div>
+        <div v-if="closeModal" @click="closeClick" class="bg-black/60 dark:bg-white/20 h-230 w-full absolute"></div>
 
         <div class="grid grid-flow-col lg:grid-rows-2 md:grid-rows-3 sm:grid-rows-6 grid-rows-6 mx-5 gap-3 mt-20">
-            <div v-for="car in cars">
+            <div v-for="car in cars" class="dark:shadow-slate-600 dark:shadow-sm">
                 <div>
                     <div v-if="notAvailable" class="flex justify-center">
                         <div class="absolute bg-black/50 mt-2">
@@ -95,23 +95,23 @@
                     <div>
                         <img :src="car.carImg" alt="" class="md:max-2xl:h-80 sm:h-60 h-50 w-full">
                     </div>
-                    <div class=" bg-green-950 h-20 w-auto flex justify-between px-5 py-2">
+                    <div class=" bg-green-950 dark:bg-slate-700 h-20 w-auto flex justify-between px-5 py-2">
                         <div>
                             <h1 class="text-white font-bold md:max-2xl:text-2xl text-xl">{{car.carName}}</h1>
                             <h1 class="text-white font-semibold md:max-2xl:text-xl">{{car.price}}</h1>
                         </div>
                         <button @click="rent"
-                            class="text-white cursor-pointer font-bold text-2xl bg-black w-25 h-12 rounded-full border-white border-2 mt-2">RENT</button>
+                            class="text-white cursor-pointer font-bold text-2xl bg-black dark:bg-purple-400 w-25 h-12 rounded-full border-white border-2 mt-2">RENT</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Section 3 -->
-    <section id="section3" class="bg-black h-auto w-full pt-20 max-w-auto px-8xl sm:px-0 px-10">
+    <section id="section3" class="bg-black h-auto w-full dark:bg-purple-200 pt-20 max-w-auto px-8xl sm:px-0 px-10">
         <div class="md:max-2xl:block sm:hidden hidden">
             <div class="flex justify-around">
-                <div class="bg-green-950 h-80 border-1 border-white rounded-lg w-100 mt-20 space-y-2 py-10 px-10">
+                <div class="bg-green-950 dark:bg-slate-700 h-80 border-1 border-white rounded-lg w-100 mt-20 space-y-2 py-10 px-10">
                     <input class="h-15 w-80 bg-black/50 border-white border-1 rounded-lg text-white text-2xl"
                         placeholder=" Full Name" type="text">
                     <input class="h-15 w-80 bg-black/50 border-white border-1 rounded-lg text-white text-2xl"
@@ -121,9 +121,9 @@
                 </div>
                 <div class="text-center pt-50">
                     <div>
-                        <h1 class="text-green-900 text-2xl font-bold">Contact Me!</h1>
+                        <h1 class="text-green-900 dark:text-slate-700 text-2xl font-bold">Contact Me!</h1>
                     </div>
-                    <div class="text-green-950 text-5xl">
+                    <div class="text-green-950 text-5xl dark:text-slate-700">
                         <i class="fa-brands fa-facebook"></i>
                         <i class="fa-solid fa-phone"></i>
                         <i class="fa-solid fa-envelope"></i>
@@ -133,7 +133,7 @@
         </div>
         <div class="md:max-2xl:hidden sm:block block">
             <div class="flex justify-around sm:flex-col sm:items-center flex-col items-center mx-5">
-                <div class="bg-green-950 h-80 border-1 py-10 px-5 border-white rounded-lg w-full mt-20 space-y-2">
+                <div class="bg-green-950 dark:bg-slate-700 h-80 border-1 py-10 px-5 border-white rounded-lg w-full mt-20 space-y-2">
                     <input class="h-15 w-full bg-black/50 border-white border-1 rounded-lg text-white text-2xl"
                         placeholder=" Full Name" type="text">
                     <input class="h-15 w-full bg-black/50 border-white border-1 rounded-lg text-white text-2xl"
@@ -143,9 +143,9 @@
                 </div>
                 <div class="text-center pt-30">
                     <div>
-                        <h1 class="text-green-900 text-2xl font-bold">Contact Me!</h1>
+                        <h1 class="text-green-900 dark:text-slate-700 text-2xl font-bold">Contact Me!</h1>
                     </div>
-                    <div class="text-green-950 text-5xl">
+                    <div class="text-green-950 text-5xl dark:text-slate-700">
                         <i class="fa-brands fa-facebook"></i>
                         <i class="fa-solid fa-phone"></i>
                         <i class="fa-solid fa-envelope"></i>
@@ -158,7 +158,7 @@
                 <source src="CAR.mp4">
             </video>
         </div>
-        <div class="bg-green-950 h-20 w-full mt-30 flex justify-around text-white text-xl py-7">
+        <div class="bg-green-950 dark:bg-slate-700 h-20 w-full mt-30 flex justify-around text-white text-xl py-7">
             <h1 class="md:max-xl:block sm:hidden hidden">Time: 1:51 PM</h1>
             <h1 class="font-bold">Philippines</h1>
             <h1 class="md:max-xl:block sm:hidden hidden">Date: 01/16/2026</h1>
